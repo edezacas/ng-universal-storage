@@ -1,3 +1,3 @@
-export class StorageProviders {
+export class NgUniversalStorageProviders {
     public static FIREBASE_PROVIDER: string = 'FIREBASE';
 }

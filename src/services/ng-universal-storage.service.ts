@@ -1,7 +1,7 @@
 import {Injectable, ReflectiveInjector} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {NgUniversalStorageProviderInterface} from '../ng-universal-storage-providers/ng-universal-storage-provider.interface'
-import {StorageProviders} from "../ng-universal-storage-providers/ng-universal-storage-providers";
+import {NgUniversalStorageProviders} from "../ng-universal-storage-providers/ng-universal-storage-providers";
 import {FirebaseStorageService} from '../ng-universal-storage-providers/firebase-storage.service';
 
 @Injectable()
@@ -13,9 +13,9 @@ export class NgUniversalStorageService implements NgUniversalStorageProviderInte
 
     }
 
-    public initStorageProvider(config: any, storageProvider: StorageProviders) {
+    public initStorageProvider(config: any, storageProvider: NgUniversalStorageProviders) {
         switch (storageProvider) {
-            case StorageProviders.FIREBASE_PROVIDER:
+            case NgUniversalStorageProviders.FIREBASE_PROVIDER:
                 let injector = ReflectiveInjector.resolveAndCreate([FirebaseStorageService]);
                 let firebaseStorageService = injector.get(FirebaseStorageService);
                 firebaseStorageService.initStorageProvider(config);
