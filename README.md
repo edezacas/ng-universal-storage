@@ -25,7 +25,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
 // Import your library
-import { SampleModule } from 'ng-universal-storage';
+import { NgUniversalStorage } from 'ng-universal-storage';
 
 @NgModule({
   declarations: [
@@ -35,22 +35,12 @@ import { SampleModule } from 'ng-universal-storage';
     BrowserModule,
 
     // Specify your library as an import
-    LibraryModule
+    NgUniversalStorage.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-```
-
-Once your library is imported, you can use its components, directives and pipes in your Angular application:
-
-```xml
-<!-- You can now use your library component in app.component.html -->
-<h1>
-  {{title}}
-</h1>
-<sampleComponent></sampleComponent>
 ```
 
 ## Development
