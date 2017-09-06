@@ -17,10 +17,10 @@ export * from './ng-universal-storage-providers/ng-universal-storage-providers';
         AngularFireAuthModule,
     ]
 })
-export class NgUniversalStorage {
+export class NgUniversalStorageModule {
     static forRoot(): ModuleWithProviders {
         return {
-            ngModule: NgUniversalStorage,
+            ngModule: NgUniversalStorageModule,
             providers: [NgUniversalStorageService]
         };
     }
