@@ -1,4 +1,4 @@
-# ng-universal-storage
+# ng-universal-storage (in development)
 
 ## Installation
 
@@ -24,8 +24,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
-// Import your library
-import { NgUniversalStorage } from 'ng-universal-storage';
+import { NgUniversalStorageModule } from 'ng-universal-storage';
 
 @NgModule({
   declarations: [
@@ -34,8 +33,8 @@ import { NgUniversalStorage } from 'ng-universal-storage';
   imports: [
     BrowserModule,
 
-    // Specify your library as an import
-    NgUniversalStorage.forRoot()
+    // Import NgUniversalStorageModule module
+    NgUniversalStorage
   ],
   providers: [],
   bootstrap: [AppComponent]

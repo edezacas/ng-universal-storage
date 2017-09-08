@@ -1,8 +1,9 @@
 import {Injectable} from '@angular/core';
-import {NgUniversalStorageProviderInterface} from "./ng-universal-storage-provider.interface";
+import {NgUniversalStorageProviderInterface} from '../ng-universal-storage-provider.interface';
 import {FirebaseAppConfig, FirebaseApp} from 'angularfire2';
-import {AngularFireDatabase, FirebaseObjectObservable, FirebaseListObservable} from 'angularfire2/database';
+import {AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2/database';
 import * as firebase from 'firebase/app';
+import {FirebaseCollection} from './firebase-collection';
 
 @Injectable()
 export class FirebaseStorageService implements NgUniversalStorageProviderInterface {
@@ -27,12 +28,12 @@ export class FirebaseStorageService implements NgUniversalStorageProviderInterfa
         return this.db.object(name);
     }
 
-    addCollection(name: string): FirebaseListObservable<any> {
-        return this.db.list(name);
+    addCollection(name: string): FirebaseCollection<any> {
+        return new FirebaseCollection(this.db.list(name));
     }
 
-    getCollection(name: string): FirebaseListObservable<any> {
-        return this.db.list(name);
+    getCollection(name: string): FirebaseCollection<any> {
+        return new FirebaseCollection(this.db.list(name));
     }
 
     saveObject(obj: FirebaseObjectObservable<any>, values: any) {

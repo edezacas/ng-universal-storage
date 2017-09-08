@@ -1,13 +1,12 @@
-import {NgModule, ModuleWithProviders} from '@angular/core';
+import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {AngularFireModule} from "angularfire2";
-import {AngularFireDatabaseModule} from "angularfire2/database";
-import {AngularFireAuthModule} from "angularfire2/auth";
-import {NgUniversalStorageService} from "./services/ng-universal-storage.service";
+import {AngularFireModule} from 'angularfire2';
+import {AngularFireDatabaseModule} from 'angularfire2/database';
+import {AngularFireAuthModule} from 'angularfire2/auth';
+import {NgUniversalStorageService} from './services/ng-universal-storage.service';
 
 export * from './services/ng-universal-storage.service';
-export * from './ng-universal-storage-providers/firebase-storage.service';
-export * from './ng-universal-storage-providers/ng-universal-storage-providers';
+export * from './ng-universal-storage-providers/index';
 
 @NgModule({
     imports: [
@@ -15,13 +14,11 @@ export * from './ng-universal-storage-providers/ng-universal-storage-providers';
         AngularFireModule,
         AngularFireDatabaseModule,
         AngularFireAuthModule,
+    ],
+    providers: [
+        NgUniversalStorageService
     ]
 })
 export class NgUniversalStorageModule {
-    static forRoot(): ModuleWithProviders {
-        return {
-            ngModule: NgUniversalStorageModule,
-            providers: [NgUniversalStorageService]
-        };
-    }
+
 }

@@ -1,8 +1,9 @@
 import {Injectable, ReflectiveInjector} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {NgUniversalStorageProviderInterface} from '../ng-universal-storage-providers/ng-universal-storage-provider.interface'
-import {NgUniversalStorageProviders} from "../ng-universal-storage-providers/ng-universal-storage-providers";
-import {FirebaseStorageService} from '../ng-universal-storage-providers/firebase-storage.service';
+import {NgUniversalStorageProviders} from '../ng-universal-storage-providers/ng-universal-storage-providers';
+import {FirebaseStorageService} from '../ng-universal-storage-providers/firebase/firebase-storage.service';
+import {NgUniversalStorageCollection} from '../ng-universal-storage-providers/ng-universal-storage-collection.interface';
 
 @Injectable()
 export class NgUniversalStorageService implements NgUniversalStorageProviderInterface {
@@ -41,11 +42,11 @@ export class NgUniversalStorageService implements NgUniversalStorageProviderInte
         this.storageProvider.saveObject(obj, values);
     }
 
-    public addCollection(name: string): Observable<any> {
+    public addCollection(name: string): NgUniversalStorageCollection<any> {
         return this.storageProvider.addCollection(name);
     }
 
-    public getCollection(name: string): Observable<any> {
+    public getCollection(name: string): NgUniversalStorageCollection<any> {
         return this.storageProvider.getCollection(name);
     }
 }

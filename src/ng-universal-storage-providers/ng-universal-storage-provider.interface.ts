@@ -1,4 +1,5 @@
 import {Observable} from 'rxjs/Observable';
+import {NgUniversalStorageCollection} from './ng-universal-storage-collection.interface';
 
 export interface NgUniversalStorageProviderInterface {
 
@@ -40,11 +41,11 @@ export interface NgUniversalStorageProviderInterface {
      * Add collection to database
      * @param {string} key
      */
-    addCollection(key: string): Observable<any>;
+    addCollection(key: string): NgUniversalStorageCollection<any>;
 
     /**
      * Get collection from database
      * @param {string} key
      */
-    getCollection(key: string): Observable<any>;
+    getCollection(key: string): NgUniversalStorageCollection<any>;
 }
