@@ -1,12 +1,13 @@
 import {NgUniversalStorageCollection} from '../ng-universal-storage-collection.interface';
 import {FirebaseListObservable} from 'angularfire2/database';
+import {Observable} from 'rxjs/Observable';
 
-
-export class FirebaseCollection<T> implements NgUniversalStorageCollection<T> {
+export class FirebaseCollection<T> extends Observable<T> implements NgUniversalStorageCollection<T> {
 
     private _collection: FirebaseListObservable<any>;
 
     constructor(list: FirebaseListObservable<any>) {
+        super();
         this._collection = list;
     }
 

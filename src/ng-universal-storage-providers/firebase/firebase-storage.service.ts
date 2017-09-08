@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {NgUniversalStorageProviderInterface} from '../ng-universal-storage-provider.interface';
 import {FirebaseAppConfig, FirebaseApp} from 'angularfire2';
-import {AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2/database';
+import {AngularFireDatabase, FirebaseObjectObservable} from 'angularfire2/database';
 import * as firebase from 'firebase/app';
 import {FirebaseCollection} from './firebase-collection';
 
